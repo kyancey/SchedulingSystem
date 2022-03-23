@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane minWidth="-Infinity" prefHeight="607.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kyancey.scheduling.Controllers.MainFormController">
+   <children>
+      <GridPane layoutX="106.0" layoutY="166.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="0.0" prefWidth="5.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="800.0" prefWidth="800.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="250.0" minHeight="250.0" prefHeight="250.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="187.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="521.0" minWidth="10.0" prefWidth="187.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="585.0" minWidth="10.0" prefWidth="426.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Appointments" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1">
+                     <children>
+                        <RadioButton fx:id="radioButtonAll" mnemonicParsing="false" selected="true" text="All">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="timeToggle" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioButtonWeek" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Week" toggleGroup="$timeToggle" />
+                        <RadioButton fx:id="radioButtonMonth" layoutX="45.0" layoutY="10.0" mnemonicParsing="false" text="Month" toggleGroup="$timeToggle" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2">
+                     <children>
+                        <Button fx:id="buttonBack" mnemonicParsing="false" text="&lt;" />
+                        <Label fx:id="labelCurrentMonthWeek" text="Current Month Week" />
+                        <Button fx:id="buttonForward" mnemonicParsing="false" text="&gt;" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <Label text="Customers" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="buttonAddAppointment" mnemonicParsing="false" onAction="#buttonAddAppointmentClicked" text="Add" />
+                        <Button fx:id="buttonUpdateAppointment" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonUpdateAppointmentClicked" text="Update" />
+                        <Button fx:id="buttonDeleteAppointment" layoutX="48.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonDeleteAppointmentClicked" text="Delete" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <TableView fx:id="appointmentTableView" layoutX="443.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <columns>
+                  <TableColumn fx:id="appointmentID" prefWidth="38.0" text="ID" />
+                  <TableColumn fx:id="appointmentTitle" prefWidth="101.0" text="Title" />
+                  <TableColumn fx:id="appointmentDescription" prefWidth="132.0" text="Description" />
+                  <TableColumn fx:id="appointmentLocation" prefWidth="76.0" text="Location" />
+                  <TableColumn fx:id="appointmentContact" prefWidth="52.0" text="Contact" />
+                  <TableColumn fx:id="appointmentType" prefWidth="85.0" text="Type" />
+                  <TableColumn fx:id="appointmentStart" prefWidth="103.0" text="Start" />
+                  <TableColumn fx:id="appointmentEnd" prefWidth="76.0" text="End" />
+                  <TableColumn fx:id="appointmentCustomerID" prefWidth="140.0" text="Customer ID" />
+                  <TableColumn fx:id="appointmentUserID" prefWidth="140.0" text="Customer ID" />
+               </columns>
+            </TableView>
+            <TableView fx:id="customerTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+              <columns>
+                <TableColumn fx:id="customerID" prefWidth="38.0" text="ID" />
+                <TableColumn fx:id="customerName" prefWidth="139.0" text="Name" />
+                  <TableColumn fx:id="customerAddress" prefWidth="115.0" text="Address" />
+                  <TableColumn fx:id="customerPostalCode" prefWidth="96.0" text="Postal Code" />
+                  <TableColumn fx:id="customerPhone" prefWidth="120.0" text="Phone" />
+              </columns>
+            </TableView>
+            <GridPane layoutX="15.0" layoutY="277.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="buttonAddCustomer" mnemonicParsing="false" onAction="#buttonAddCustomerClicked" text="Add" />
+                        <Button fx:id="buttonUpdateCustomer" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonUpdateCustomerClicked" text="Update" />
+                        <Button fx:id="buttonDeleteCustomer" layoutX="48.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonDeleteCustomerClicked" text="Delete" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <Label fx:id="labelAlert" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <children>
+                  <Button fx:id="buttonTotalAppointments" mnemonicParsing="false" onAction="#buttonTotalAppointmentsClicked" text="Total Appointments" />
+                  <Button fx:id="buttonSchedule" mnemonicParsing="false" onAction="#buttonScheduleClicked" text="Total Appointments" />
+                  <Button fx:id="buttonAppointmentHistogram" layoutX="136.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonAppointmentHistogramClicked" text="Appointment Histogram" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
